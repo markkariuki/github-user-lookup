@@ -22,8 +22,9 @@ export class AppComponent {
     subscribe(
     (res:Response)=>{
       const userData1 = res.json();
-      console.log(userData1);
+      console.log(userData)
       this.userData = userData1;
+
     }
     )
   }
