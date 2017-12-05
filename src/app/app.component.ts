@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component }from'@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { userData } from './interfece';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'the github user look-up';
+  title = 'user look-up';
+
+  userName='';
+  avatar_url='';
+  userData:any = []
+
+  constructor(private http: Http){}
+
+  searchUserName(){
+    this.http.get('https://api.github.com/users/'+ this.userName).
+    subscribe(
+    (res:Response)=>{
+      const userData1 = res.json();
+      console.log(userData1);
+      this.userData = userData1;
+    }
+    )
+  }
+
+
+
 }

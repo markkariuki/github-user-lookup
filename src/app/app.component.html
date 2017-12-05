@@ -4,5 +4,12 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-  <input type="text"[{ngModel}]=userName>
-  <button (click)=searchUserName()>search</button>
+  <br>
+  <input [(ngModel)]="userName">
+  <button (click)="searchUserName()">search</button>
+</div>
+<img [src]="userData.avatar_url" alt="user image">
+       <h5>Name:{{userData.name}}</h5>
+       <h5>User Name:{{userData.login}}</h5>
+       <h5>Company:{{userData.company}}</h5>
+       <h5>Url:{{userData.url}}</h5>
